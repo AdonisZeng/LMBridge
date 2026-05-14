@@ -44,7 +44,7 @@ export const useModuleStore = create<ModuleStoreState>()(
       },
     }),
     {
-      name: 'ai-box-modules',
+      name: 'lmbridge-modules',
     }
   )
 )

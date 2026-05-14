@@ -71,7 +71,7 @@ function useLocalStorageSync(_storeKey: string) {
 
 export function useRefreshSettings() {
   const { updateProvider, setActiveProvider, decryptApiKeys } = useSettingsStore()
-  const storageVersion = useLocalStorageSync('ai-box-settings')
+  const storageVersion = useLocalStorageSync('lmbridge-settings')
 
   useEffect(() => {
     if (storageVersion === 0) {
@@ -81,7 +81,7 @@ export function useRefreshSettings() {
     let cancelled = false
     const refreshSettings = async () => {
       try {
-        const stored = localStorage.getItem('ai-box-settings')
+        const stored = localStorage.getItem('lmbridge-settings')
         if (!stored) {
           return
         }

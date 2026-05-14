@@ -116,13 +116,13 @@ test('accepts action field and summary-only finish output from local models', ()
   const decision = parsePlannerDecision(`
     {
       "action": "finish",
-      "summary": "你好！我是 AI Box agent planner。"
+      "summary": "你好！我是 LMBridge agent planner。"
     }
   `)
 
   assert.equal(decision.type, 'finish')
-  assert.equal(decision.summary, '你好！我是 AI Box agent planner。')
-  assert.equal(decision.finalMessage, '你好！我是 AI Box agent planner。')
+  assert.equal(decision.summary, '你好！我是 LMBridge agent planner。')
+  assert.equal(decision.finalMessage, '你好！我是 LMBridge agent planner。')
 })
 
 test('accepts nested next_action finish output from local models', () => {
@@ -132,7 +132,7 @@ test('accepts nested next_action finish output from local models', () => {
       "summary": "Responding to user's inquiry about capabilities.",
       "next_action": {
         "type": "finish",
-        "content": "你好！我是 AI Box agent planner。"
+        "content": "你好！我是 LMBridge agent planner。"
       }
     }
     \`\`\`
@@ -140,7 +140,7 @@ test('accepts nested next_action finish output from local models', () => {
 
   assert.equal(decision.type, 'finish')
   assert.equal(decision.summary, "Responding to user's inquiry about capabilities.")
-  assert.equal(decision.finalMessage, '你好！我是 AI Box agent planner。')
+  assert.equal(decision.finalMessage, '你好！我是 LMBridge agent planner。')
 })
 
 test('accepts nested action object finish output from local models', () => {

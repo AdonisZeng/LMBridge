@@ -7,6 +7,7 @@ import { SettingsWindow } from '@/components/settings/SettingsWindow'
 import { useSettingsStore } from '@/lib/store'
 import { applyThemeToDocument } from '@/lib/theme'
 import { cn } from '@/lib/utils'
+import { APP_NAME } from '@/lib/constants'
 
 function App() {
   const { theme, setTheme } = useSettingsStore()
@@ -33,7 +34,7 @@ function App() {
                 <span className="text-white font-bold text-sm">AI</span>
               </div>
               <span className="font-semibold tracking-tight text-slate-900 dark:text-[#F8FAFC]">
-                AI Box
+                {APP_NAME}
               </span>
             </div>
             <button

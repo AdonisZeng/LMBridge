@@ -1,5 +1,5 @@
 {
-  "name": "ai-box",
+  "name": "lmbridge",
   "version": "1.0.0",
   "description": "AI-powered modular desktop tool with chat and agent workflows",
   "main": "./out/main/main.js",
@@ -52,8 +52,8 @@
     "vite": "^5.1.0"
   },
   "build": {
-    "appId": "com.aibox.app",
-    "productName": "AI Box",
+    "appId": "com.lmbridge.app",
+    "productName": "LMBridge",
     "directories": {
       "output": "release"
     },

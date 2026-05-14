@@ -166,7 +166,7 @@ export const useSettingsStore = create<SettingsState>()(
       },
     }),
     {
-      name: 'ai-box-settings',
+      name: 'lmbridge-settings',
       merge: (persistedState, currentState) => {
         const persisted = persistedState as Partial<SettingsState> & { activeProvider?: string } | undefined
         if (!persisted) return currentState

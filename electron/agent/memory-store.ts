@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parse, stringify } from 'yaml'
+import { MEMORY_INDEX_HEADER } from './constants.ts'
 
 const DEFAULT_MEMORY_ROOT = join(homedir(), '.agents', 'memory')
 const MEMORY_INDEX_FILE = 'MEMORY.md'
@@ -92,7 +93,7 @@ export class MemoryStore {
   private async writeIndex(): Promise<void> {
     const entries = await this.list()
     const lines = [
-      '# AI Box Memory',
+      MEMORY_INDEX_HEADER,
       '',
       ...entries.map(
         (entry) => `- ${entry.id}: [${entry.type}] ${entry.name} - ${entry.description}`

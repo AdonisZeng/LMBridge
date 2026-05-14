@@ -64,7 +64,7 @@ test('seeds the agent loop from shared conversation history when provided', () =
       {
         id: 'message-1',
         role: 'assistant',
-        content: '你好！我是 AI Box 助手。',
+        content: '你好！我是 LMBridge 助手。',
         timestamp: 101,
       },
       {
@@ -97,7 +97,7 @@ test('seeds the agent loop from shared conversation history when provided', () =
   assert.deepEqual(session.loop.messages, [
     {
       role: 'assistant',
-      content: '你好！我是 AI Box 助手。',
+      content: '你好！我是 LMBridge 助手。',
       timestamp: 101,
     },
     {

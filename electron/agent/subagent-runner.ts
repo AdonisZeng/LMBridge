@@ -1,5 +1,6 @@
 import type { MCPTool } from '../../src/types/mcp.ts'
 import type { Message, ProviderConfig } from '../../src/types/providers.ts'
+import { SUBAGENT_PROMPT } from './constants.ts'
 
 export interface AgentSubagentRunInput {
   prompt: string
@@ -44,7 +45,7 @@ export class DefaultSubagentRunner {
           'subagent-system',
           'system',
           [
-            'You are an isolated subagent for AI Box.',
+            SUBAGENT_PROMPT,
             'Work only on the delegated prompt, without assuming parent conversation context.',
             'Return a concise result summary for the parent agent.',
           ].join(' ')

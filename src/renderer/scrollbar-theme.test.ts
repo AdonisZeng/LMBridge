@@ -7,7 +7,7 @@ import { test } from 'node:test'
 const rendererDir = dirname(fileURLToPath(import.meta.url))
 const indexCss = readFileSync(join(rendererDir, 'index.css'), 'utf8')
 
-test('global scrollbars use the AI Box theme instead of native light scrollbars', () => {
+test('global scrollbars use the LMBridge theme instead of native light scrollbars', () => {
   assert.match(indexCss, /--scrollbar-track:/)
   assert.match(indexCss, /--scrollbar-thumb:/)
   assert.match(indexCss, /--scrollbar-thumb-hover:/)

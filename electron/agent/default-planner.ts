@@ -8,6 +8,7 @@ import type {
 import type { Message, ProviderConfig } from '../../src/types/providers.ts'
 import type { AgentMemorySummary } from './memory-store.ts'
 import type { AgentSkillSummary } from './skill-registry.ts'
+import { PROTOCOL_REPAIR_PROMPT } from './constants.ts'
 import { SystemPromptBuilder } from './system-prompt-builder.ts'
 
 export type PlannerDecision =
@@ -134,7 +135,7 @@ function truncateForRepairPrompt(content: string): string {
 
 function buildProtocolRepairPrompt(error: unknown, previousResponse: string): string {
   return [
-    'The previous planner response could not be parsed as a valid AI Box planner decision.',
+    PROTOCOL_REPAIR_PROMPT,
     `Parser error: ${errorMessage(error)}`,
     'Return only one JSON object. Do not include markdown fences, prose, or extra keys outside the object.',
     'Use exactly one of these canonical shapes:',

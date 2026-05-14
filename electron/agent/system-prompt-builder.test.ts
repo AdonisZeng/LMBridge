@@ -1,6 +1,7 @@
 import * as assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { SystemPromptBuilder } from './system-prompt-builder.ts'
+import { AGENT_PLANNER_PROMPT } from './constants.ts'
 
 test('builds a layered agent system prompt with tools, skills, memory, and dynamic context', () => {
   const prompt = new SystemPromptBuilder().build({
@@ -33,7 +34,7 @@ test('builds a layered agent system prompt with tools, skills, memory, and dynam
     },
   })
 
-  assert.match(prompt, /You are the AI Box agent planner/)
+  assert.match(prompt, new RegExp(AGENT_PLANNER_PROMPT.replace(/\.$/, '')))
   assert.match(prompt, /## Available Tools/)
   assert.match(prompt, /local\.read_file/)
   assert.match(prompt, /## Available Skills/)

@@ -74,7 +74,7 @@ test('web message sources are unique by normalized url', () => {
   const sources = buildWebMessageSources([
     {
       id: 'result-1',
-      title: 'AI Box Release Notes',
+      title: 'LMBridge Release Notes',
       url: 'https://example.com/release?utm_source=test',
       snippet: 'Release notes snippet',
       provider: 'brave',
@@ -101,7 +101,7 @@ test('web message sources are unique by normalized url', () => {
   assert.deepEqual(sources, [
     {
       id: 'web-1',
-      name: 'AI Box Release Notes',
+      name: 'LMBridge Release Notes',
       url: 'https://example.com/release',
       snippet: 'Release notes snippet',
       provider: 'web',

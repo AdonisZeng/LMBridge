@@ -39,13 +39,13 @@ test('brave adapter sends token header and normalizes web results', async () => 
 
   const results = await braveWebSearch({
     config: baseConfig,
-    query: 'ai box',
+    query: 'LMBridge',
     fetchImpl,
     signal: AbortSignal.timeout(1000),
   })
 
   assert.equal(calls.length, 1)
-  assert.match(calls[0].url, /q=ai\+box/)
+  assert.match(calls[0].url, /q=LMBridge/)
   assert.equal((calls[0].init?.headers as Record<string, string>)['X-Subscription-Token'], 'secret')
   assert.deepEqual(results, [
     {
@@ -78,7 +78,7 @@ test('tavily adapter sends json payload and normalizes results', async () => {
 
   const results = await tavilyWebSearch({
     config: { ...baseConfig, provider: 'tavily', baseURL: 'https://api.tavily.com/search' },
-    query: 'ai box',
+    query: 'LMBridge',
     fetchImpl,
     signal: AbortSignal.timeout(1000),
   })
@@ -87,7 +87,7 @@ test('tavily adapter sends json payload and normalizes results', async () => {
   assert.equal(calls[0].init?.method, 'POST')
   assert.deepEqual(JSON.parse(String(calls[0].init?.body)), {
     api_key: 'secret',
-    query: 'ai box',
+    query: 'LMBridge',
     max_results: 5,
     search_depth: 'basic',
     include_answer: false,
@@ -122,7 +122,7 @@ test('searxng adapter sends json query and normalizes results', async () => {
 
   const results = await searxngWebSearch({
     config: { ...baseConfig, provider: 'searxng', baseURL: 'https://search.example.com' },
-    query: 'ai box',
+    query: 'LMBridge',
     fetchImpl,
     signal: AbortSignal.timeout(1000),
   })

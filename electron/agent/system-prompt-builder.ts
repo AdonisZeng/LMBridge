@@ -2,6 +2,7 @@ import type { AgentExecutionMode } from '../../src/types/agent.ts'
 import type { MCPTool } from '../../src/types/mcp.ts'
 import type { AgentMemorySummary } from './memory-store.ts'
 import type { AgentSkillSummary } from './skill-registry.ts'
+import { AGENT_PLANNER_PROMPT } from './constants.ts'
 
 export interface SystemPromptDynamicContext {
   cwd?: string
@@ -31,7 +32,7 @@ export class SystemPromptBuilder {
 
   private coreInstructions(): string {
     return [
-      'You are the AI Box agent planner.',
+      AGENT_PLANNER_PROMPT,
       'Choose exactly one next action and return only one JSON object.',
       'Allowed action types: call_tool, use_skill, run_script, finish.',
       'Only use tools and skills from the provided context.',

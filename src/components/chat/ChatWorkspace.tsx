@@ -27,8 +27,7 @@ import { AgentContextRail } from '@/components/workspace/agent/AgentContextRail'
 import { useAgentStore, useChatStore, useMCPStore, useSettingsStore } from '@/lib/store'
 import { getProviderValidationError, type Message } from '@/lib/providers'
 import type { AgentExecutionMode, AgentTaskEvent, AgentTaskStatus } from '@/types/agent'
-
-const GREETING_MESSAGE = '你好！我是 AI Box 助手。有什么我可以帮助你的吗？'
+import { GREETING_MESSAGE } from '@/lib/constants'
 const GENERATION_STOPPED_MESSAGE = '已停止生成。'
 
 function createMessageId(): string {
@@ -197,7 +196,7 @@ export function ChatWorkspace() {
     const latestProvider = resolveLatestChatProvider({
       activeProvider: latestSettings.activeProviders.text,
       providers: latestSettings.providers,
-      persistedSettings: window.localStorage.getItem('ai-box-settings'),
+      persistedSettings: window.localStorage.getItem('lmbridge-settings'),
     })
     const currentProviderConfig =
       latestProvider.providerConfig ?? latestSettings.getProviderConfig(latestProvider.providerId)

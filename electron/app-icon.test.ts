@@ -8,19 +8,19 @@ test('resolves the app icon path for development and packaged runs', () => {
   assert.equal(
     resolveAppIconPath({
       isDev: true,
-      cwd: 'D:/Development/Electron/AI-Box',
-      appPath: 'C:/Program Files/AI Box/resources/app.asar',
+      cwd: 'D:/Development/Electron/LMBridge',
+      appPath: 'C:/Program Files/LMBridge/resources/app.asar',
     }),
-    join('D:/Development/Electron/AI-Box', 'electron/assets/icon.ico')
+    join('D:/Development/Electron/LMBridge', 'electron/assets/icon.ico')
   )
 
   assert.equal(
     resolveAppIconPath({
       isDev: false,
-      cwd: 'D:/Development/Electron/AI-Box',
-      appPath: 'C:/Program Files/AI Box/resources/app.asar',
+      cwd: 'D:/Development/Electron/LMBridge',
+      appPath: 'C:/Program Files/LMBridge/resources/app.asar',
     }),
-    join('C:/Program Files/AI Box/resources/app.asar', 'electron/assets/icon.ico')
+    join('C:/Program Files/LMBridge/resources/app.asar', 'electron/assets/icon.ico')
   )
 })
 
