@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import type { ChatSession, Message } from '@/types/providers'
-import { GREETING_MESSAGE } from './constants'
+import { GREETING_MESSAGE } from '@/lib/constants'
 
 interface ChatState {
   sessions: ChatSession[]
